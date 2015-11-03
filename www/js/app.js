@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,58 +15,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     
     PushBotsPlugin.initializeAndroid('5577109c177959db1d8b4567','483409914041');  
       
-	/*PUT IN PUSH
-    if(ionic.Platform.isWebView()) {
-         
-        var androidConfig = {
-            "senderID":"483409914041",
-        };
-         
-        androidConfig.ecb = "window.onNotification"
-         
-        window.onNotification = function(e) {
-          switch( e.event )
-          {
-              case 'registered':
-                  if ( e.regid.length > 0 )
-                  {
-                      //DEVICE REGISTRATION ID
-                      alert(e.regid);
-                  }
-                  break;
- 
-              case 'message':
-                  alert(e.message);
-                   
-                  //We send an angular broadcast notification
-                  var elem = angular.element(document.querySelector('[ng-app]'));
-                  var rootScope = elem.injector().get('$rootScope');
-                  rootScope.$broadcast('pushNotificationReceived', e);
-                  break;
- 
-              case 'error':
-                  alert(e.msg);
-                  break;
- 
-              default:
-                    alert('unknown');
-                  break;
-          }
-        };
-         
-        //DEVICE REGISTER
-        $cordovaPush.register(androidConfig).then(function(result) {
-            alert(result);
-          }, function(err) {
-              alert(err);
-          });
-           
-        $rootScope.$on('pushNotificationReceived', function(event, notification) {
-            //WE RECEIVE THE BROADCAST
-              alert("received");
-          });
-    }*/
-	
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -77,21 +25,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
 
+
+app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+
+  //Se asigna el sitio web a embeber desde el iframe
+  $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://maliaccesorios.com/']);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
+  $stateProvider 
 
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: "/tab",
     abstract: true,
-    templateUrl: "templates/tabs.html"
+    templateUrl: "templates/menu.html"
   })
-
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
@@ -113,7 +64,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.chat-detail', {
+
+  .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
         'tab-chats': {
@@ -131,6 +83,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.account-formContact',{
+    url: 'formContact',
+          views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-formContact.html'
+        }
+      }
   });
 
   // if none of the above states are matched, use this as the fallback

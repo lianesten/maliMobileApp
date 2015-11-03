@@ -1,17 +1,55 @@
-<ion-view view-title="contactenos">
+<ion-view view-title="Contacto">
   <ion-content>
-    <!--<ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>-->
+    <ion-list>
+      <ion-item class="item-icon-left" type="item-text-wrap" ui-sref="tab.account-formContact">
+        <i class="icon ion-email"></i>
+        Cuentanos tu inquietud
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>   
+        <ion-nav-view name="embedContact"></ion-nav-view>     
+      </ion-item>
+
+      <ion-item class="item-icon-left" type="item-text-wrap" >
+        <i class="icon ion-email"></i>
+        Cuentanos tu inquietud
+      </ion-item>
+
+      <ion-item class="item-icon-left" type="item-text-wrap" >
+        <i class="icon ion-email"></i>
+        Cuentanos tu inquietud
+      </ion-item> 
+
+    </ion-list>
+  </ion-content>
+</ion-view>
+<ion-nav-view></ion-nav-view>
+
+
+
+
+<!--<ion-view view-title="contactenos">
+  <ion-content>
+
+<ion-list>
+  <ion-item class="item-remove-animate item-icon-left" type="item-text-wrap" ui-sref="tab.embedContact">
+        <i class="icon ion-email"></i>
+        Cuentanos tu inquietud
+      
+  </ion-item>
+</ion-list>
+
     
     <div class="list">
 
-      <a class="item item-icon-left" href="#" onclick="window.open('http://maliaccesorios.com/index.php/2013-10-28-20-50-24.html','closebuttoncaption=Return');">
+
+      <a nav-clear class="item item-icon-left"  ui-sref="tab.embedContact">
         <i class="icon ion-email"></i>
         Cuentanos tu inquietud
       </a>
+     
     
       <a class="item item-icon-left item-icon-right" href="#">
         <i class="icon ion-chatbubble-working"></i>
@@ -34,3 +72,4 @@
   </div>
   </ion-content>
 </ion-view>
+-->

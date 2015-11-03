@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
+.controller('embedContactCtrl', function($scope) {})
+
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
@@ -18,3 +20,4 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 });
+
