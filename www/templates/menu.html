@@ -6,17 +6,22 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-color-active-assertive">
 
   <!-- Inicio Tab -->
-  <ion-tab title="Inicio" icon-off="ion-home-outline" icon-on="ion-home" ui-sref="tab.dash">
+  <ion-tab title="Inicio" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" ui-sref="tab.dash">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
   <!-- Accesorios Tab -->
-  <ion-tab title="Accesorios" icon-off="ion-navicon-outline" icon-on="ion-navicon" href="#/tab/chats">
+  <ion-tab title="Accesorios" icon-off="ion-ios-cart-outline" icon-on="ion-ios-cart" href="#/tab/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
+  </ion-tab>
+
+    <!-- ofertas Tab -->
+  <ion-tab title="Ofertas" icon-off="ion-ios-star-outline" icon-on="ion-ios-star" href="#/tab/chats">
     <ion-nav-view name="tab-chats"></ion-nav-view>
   </ion-tab>
 
   <!-- Contacto Tab -->
-  <ion-tab title="Contacto" icon-off="ion-gear-outline" icon-on="ion-ios-gear" ui-sref="tab.account">
+  <ion-tab title="Contacto" icon-off="ion-ios-email-outline" icon-on="ion-ios-email" ui-sref="tab.account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 
