@@ -31,6 +31,8 @@ app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
   //Se asigna el sitio web a embeber desde el iframe
   $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://maliaccesorios.com/']);
+  $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.6528930159919!2d-75.58687299999997!3d6.182711000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTAnNTcuOCJOIDc1wrAzNScxMi43Ilc!5e0!3m2!1ses-419!2sco!4v1436218838254']);
+  $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://v2.zopim.com/widget/livechat.html?key=2lgLHPgIdOriBLzrdpmWzqsGHmf5B0ss&mid=XJf2n0Cl7QI6U8&lang=es-es&hostname=maliaccesorios.com&api_calls=%5B%5B"setStatus"%2C%5Bnull%5D%5D%2C%5B"setStatus"%2C%5Bnull%5D%5D%5D']);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -90,6 +92,24 @@ app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
           views: {
         'tab-account': {
           templateUrl: 'templates/tab-formContact.html'
+        }
+      }
+  })
+
+  .state('tab.location',{
+    url: '/ubicacion',
+          views: {
+        'tab-account': {
+          templateUrl: 'templates/location.html'
+        }
+      }
+  })
+
+    .state('tab.chatOnline',{
+    url: '/chatOnline',
+          views: {
+        'tab-account': {
+          templateUrl: 'templates/chatOnline.html'
         }
       }
   });
