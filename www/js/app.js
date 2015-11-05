@@ -68,6 +68,43 @@ app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
       }
     })
 
+  .state('tab.collares', {
+      url: '/collares',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/collares.html'
+        }
+      }
+    })
+
+    .state('tab.pulseras', {
+      url: '/pulseras',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/pulseras.html'
+        }
+      }
+    })
+
+    .state('tab.aretes', {
+      url: '/aretes',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/aretes.html'
+        }
+      }
+    })
+
+    .state('tab.complementos', {
+      url: '/complementos',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/complementos.html'
+        }
+      }
+    })
+
+
   .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
