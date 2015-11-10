@@ -70,4 +70,27 @@
     <ion-nav-view></ion-nav-view>
     
   </body>
+  <!--
+<script>
+function $(id){
+    return document.getElementById(id);    
+}
+var asignar=setInterval(function(){
+    if($('pp')){
+        if(window.ActiveXObject){
+            $('pp').onreadystatechange=function(){
+                if($('pp').readyState=='complete'){
+                       alert('cargó');
+                }
+            }
+            clearInterval(asignar);
+            return;
+        }
+        $('pp').onload=function(){
+            alert('cargó');
+        }
+        clearInterval(asignar);
+    }
+},10);
+</script>-->
 </html>

@@ -27,8 +27,9 @@ app.run(function($ionicPlatform) {
 
 
 
-app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
-
+app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider,$ionicConfigProvider) {
+ $ionicConfigProvider.tabs.position('bottom');
+ $ionicConfigProvider.views.forwardCache(true);
   //Se asigna el sitio web a embeber desde el iframe
   $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://maliaccesorios.com/']);
   $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.6528930159919!2d-75.58687299999997!3d6.182711000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTAnNTcuOCJOIDc1wrAzNScxMi43Ilc!5e0!3m2!1ses-419!2sco!4v1436218838254']);
@@ -59,6 +60,7 @@ app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
   })
 
   .state('tab.chats', {
+      cache: true,
       url: '/chats',
       views: {
         'tab-chats': {
@@ -156,3 +158,69 @@ app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
   $urlRouterProvider.otherwise('/tab/dash');
 
 });
+
+
+/**
+
+app.directive('iframeNanny', function($q, $http, $compile, $sce) {
+  return {
+    restrict: 'E',
+    scope: {
+      desiredUri: '=',
+      errorImageUri: '='
+    },
+    link: function(scope, element, attrs) {
+      var loadedUri = '';
+       
+      function isURLReal(fullyQualifiedURL) {
+        var URL = encodeURIComponent(fullyQualifiedURL);
+        var dfd = $q.defer();
+        var yqlUri = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22' + URL + '%22&callback=JSON_CALLBACK';
+        
+        $http.jsonp(yqlUri)
+          .success(function(data, status) {
+            console.log(data.results.length);
+            if (data.results.length) {
+              console.log('success!')
+              dfd.resolve(true);
+            } else {
+              dfd.reject(false);
+            }
+          }).error(function(data, status) {
+            dfd.reject('failed');
+          });
+
+        return dfd.promise;
+      }
+
+      scope.$watch('desiredUri', function(uri) {
+        if (loadedUri !== uri) {
+          
+          isURLReal(uri).then(function() { 
+            console.log('directive: uri valid');
+            loadedUri = uri;
+            
+            scope.trustedUri = $sce.trustAsResourceUrl(scope.desiredUri);
+            
+            var iFrameHtml = '<iframe src="{{trustedUri}}" frameborder="0" width="100%" height="1100px" scrolling="auto"></iframe>';
+            
+            var markup = $compile(iFrameHtml)(scope);
+            element.empty();
+            element.append(markup);
+          }).catch(function() {
+            console.log('directive: uri invalid');
+            var badRequestImgHtml = '<img src="{{errorImageUri}}">';
+            
+            var markup = $compile(badRequestImgHtml)(scope);
+            
+            console.log(scope.errorImageUri);
+            element.empty();
+            element.append(markup);
+          });
+        }
+      });
+    }
+  };
+});
+
+*/

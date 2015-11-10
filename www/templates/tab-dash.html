@@ -1,9 +1,15 @@
 <ion-view view-title="Inicio">
-  <ion-content class="padding">
-          <iframe  data-tap-disabled="true" src="http://maliaccesorios.com/index.php/iniciomobile.html"></iframe>
+  <ion-content class="padding" data-ng-init="showAlert()">
+
+            <iframe id="pp" class="preloader" data-tap-disabled="true" src="http://m.maliaccesorios.com/index.php/iniciomobile.html" ng-model="load" onload="uploadDone();" ></iframe>
   </ion-content>
 </ion-view>
+
 <style type="text/css">
+.preloader {
+  background:url(img/preloader.GIF) center center no-repeat;
+ }
+
 .scroll-content > .scroll {
   height: 100%;
 }
@@ -11,7 +17,14 @@
   min-height: 100%;
 }
 </style>
-<!--<ion-view view-title="Inicio">
+
+
+
+<!--
+data-ng-init="showAlert()"
+onLoad="uploadDone();"
+
+<ion-view view-title="Inicio">
   <ion-content class="padding">
     <div class="list card">
 
