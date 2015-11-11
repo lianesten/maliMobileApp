@@ -152,6 +152,12 @@ app.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider,$io
           templateUrl: 'templates/chatOnline.html'
         }
       }
+  })
+
+  .state('tab.ofertas', {
+    url: '/ofertas',
+    templateUrl: 'templates/ofertas.html'
+
   });
 
   // if none of the above states are matched, use this as the fallback
