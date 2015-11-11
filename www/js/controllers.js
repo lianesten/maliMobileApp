@@ -11,29 +11,35 @@ angular.module('starter.controllers', [])
    };*/
 
 //document.getElementById('iframeList').contentWindow.document.getElementById('nameDoc').innerHTML
-
-
+//Usamos esta bandera para saber si el iframe es cargado o no
+var flag = false;
    window.uploadDone=function(){
-   // alert("cargó iframe");
-   }
-
-/*var flag = 0;
-   window.uploadDone=function(){
-  /* have access to $scope here*
-  	flag = 1;
-     var alertPopup = $ionicPopup.alert({
+/*
+var iframe = document.getElementById("awc_frame");
+var iframe_contents = iframe.contentDocument.body.innerHTML;
+alert(iframe_contents);
+*/
+    //=============================
+  //  var contenido = document.getElementById("iframe").contentWindow;
+    //alert(contenido);
+   /* flag = true;
+    alert("flag="+flag);*/
+  // have access to $scope here*
+     /*var alertPopup = $ionicPopup.alert({
        title: 'Onload!',
        template: 'Comprueba tu conexión de red'
-     });
+     });*/
    }
-   if(flag==0){
-     var alertPopup = $ionicPopup.alert({
-       title: 'NOT onload!',
-       template: 'Comprueba tu conexión de red'
-     });
+   // sleep(5000);
+     /*setTimeout(function(){
+      alert("timeFunction");
+      if(flag==false){
+        alert("flag="+flag);
+        document.getElementById("iframe").style.display = "none";
 
+      }
 
-   }*/
+    }, 3000)*/
 
 
 

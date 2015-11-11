@@ -9,6 +9,23 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+
+
+  if(window.Connection) {
+      if(navigator.connection.type == Connection.NONE) {
+        $ionicPopup.confirm({
+          title: 'Network Problem',
+          content: 'Sorry, Please Check Your Network Connection.'
+        })
+        .then(function(result) {
+          if(!result) {
+            navigator.app.exitApp();
+          }
+        });
+      }
+    }
+
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     app.receivedEvent('deviceready');
