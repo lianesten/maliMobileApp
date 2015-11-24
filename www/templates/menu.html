@@ -12,14 +12,14 @@
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
-        <a href="https://www.instagram.com/maliaccesorios/">
-        <button id="fab" class="button button-positive button-fab button-fab-bottom-right">
+        <a onclick="window.open('instagram://user?username=maliaccesorios', '_system'); return false;"><button  class="button button-positive button-fab button-fab-bottom-right">
             <i class="icon ion-social-instagram"></i>
-        </button>
-        </a>
-        <button id="fab" class="button button-positive button-fab button-fab-bottom-left" href="https://www.facebook.com/MaliAccesoriosFemeninos">
+        </button></a>
+
+        <a onclick="window.open('facebook://user?username=243144185835149', '_system'); return false;">
+        <button  class="button button-positive button-fab button-fab-bottom-left">
             <i class="icon ion-social-facebook"></i>
-        </button>        
+        </button></a>  
 
       
         <ion-nav-view name="menuContent"></ion-nav-view>
@@ -75,7 +75,6 @@
                 <ion-item nav-clear menu-close href="#/app/ink">
                     Ink
                 </ion-item>-->
-
 
             </ion-list>
 

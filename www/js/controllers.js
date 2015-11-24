@@ -17,24 +17,16 @@ angular.module('starter.controllers', [])
         });
     }
 
-    var fab = document.getElementById('fab');
+   /* var fab = document.getElementById('fab');
     fab.addEventListener('click', function() {
         return window && window.alert ? window.alert('you clicked the FAB!') : undefined;
-    });
+    });*/
 
-    // .fromTemplate() method
-    var template =  '<ion-popover-view>' +
-                    '   <ion-header-bar>' +
-                    '       <h1 class="title">Mali Mobile</h1>' +
-                    '   </ion-header-bar>' +
-                    '   <ion-content class="padding">' +
-                    '       FAQ'+
-                    '   </ion-content>' +
-                    '</ion-popover-view>';
-
-    $scope.popover = $ionicPopover.fromTemplate(template, {
+    $scope.popover = $ionicPopover.fromTemplateUrl('templates/opciones.html', {
         scope: $scope
-    });
+    }).then(function(popover) {
+    $scope.popover = popover;
+  });
     $scope.closePopover = function() {
         $scope.popover.hide();
     };
