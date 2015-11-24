@@ -1,11 +1,32 @@
 /* global angular, document, window */
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location,  ionicMaterialInk, ionicMaterialMotion) {
-      $timeout(function(){
+.controller('AppCtrl', function($state, $ionicPopup, $scope, $ionicModal, $ionicPopover, $timeout,  $location,  ionicMaterialInk, ionicMaterialMotion) {
+  $timeout(function(){
     ionicMaterialInk.displayEffect();
-      ionicMaterialMotion.blind();
-  },0);
+    ionicMaterialMotion.blind();
+},0);
+
+  window.isConection=function(){
+        //Check if there is internet conection :)
+if(window.Connection) {
+
+    
+    if(navigator.connection.type == Connection.NONE) {
+        var frame = document.getElementById("iframe"),
+        frameDoc = frame.contentDocument || frame.contentWindow.document;
+        frameDoc.documentElement.innerHTML = "";
+        var alertPopup = $ionicPopup.alert({
+         title: 'No hay Internet!',
+         template: 'Comprueba tu conexión de red'
+     });
+        alertPopup.then(function(res) {
+            //ionic.Platform.exitApp(); 
+            window.location = "#/app/home";
+        });
+}
+}
+}
 
     // Form data for the login modal
     $scope.loginData = {};
@@ -22,14 +43,14 @@ angular.module('starter.controllers', [])
         return window && window.alert ? window.alert('you clicked the FAB!') : undefined;
     });*/
 
-    $scope.popover = $ionicPopover.fromTemplateUrl('templates/opciones.html', {
-        scope: $scope
-    }).then(function(popover) {
+$scope.popover = $ionicPopover.fromTemplateUrl('templates/opciones.html', {
+    scope: $scope
+}).then(function(popover) {
     $scope.popover = popover;
-  });
-    $scope.closePopover = function() {
-        $scope.popover.hide();
-    };
+});
+$scope.closePopover = function() {
+    $scope.popover.hide();
+};
     //Cleanup the popover when we're done with it!
     $scope.$on('$destroy', function() {
         $scope.popover.remove();
@@ -44,8 +65,8 @@ angular.module('starter.controllers', [])
 
   $timeout(function(){
     ionicMaterialInk.displayEffect();
-      ionicMaterialMotion.ripple();
-  },0);
+    ionicMaterialMotion.ripple();
+},0);
 
     // Toggle Code Wrapper
     var code = document.getElementsByClassName('code-wrapper');
@@ -118,7 +139,7 @@ angular.module('starter.controllers', [])
     /* ionicMaterialMotion.pushDown({
         selector: '.push-down'
     });
-    */
+*/
 })
 
 .controller('ExtensionsCtrl', function($scope, $stateParams, $ionicActionSheet, $timeout, $ionicLoading, $ionicModal, $ionicPopup,  ionicMaterialInk) {

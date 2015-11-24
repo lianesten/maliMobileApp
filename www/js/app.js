@@ -6,8 +6,20 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ionic-material', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$ionicPopup) {
     $ionicPlatform.ready(function() {
+        //Check if there is internet conection :)
+            if(window.Connection) {
+                if(navigator.connection.type == Connection.NONE) {
+                    var alertPopup = $ionicPopup.alert({
+                     title: 'No hay Internet!',
+                     template: 'Comprueba tu conexión de red para un adecuado funcionamiento de la App'
+                 });
+                }
+            }
+
+
+
         //Registro de las notificaciones con Google Cloud Message
         PushbotsPlugin.initializeAndroid("5577109c177959db1d8b4567", "483409914041");
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
