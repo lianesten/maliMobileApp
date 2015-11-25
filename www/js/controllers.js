@@ -15,16 +15,23 @@ if(window.Connection) {
     if(navigator.connection.type == Connection.NONE) {
         var frame = document.getElementById("iframe"),
         frameDoc = frame.contentDocument || frame.contentWindow.document;
-        frameDoc.documentElement.innerHTML = "";
+        frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión</h1>';
         var alertPopup = $ionicPopup.alert({
          title: 'No hay Internet!',
          template: 'Comprueba tu conexión de red'
      });
         alertPopup.then(function(res) {
             //ionic.Platform.exitApp(); 
-            window.location = "#/app/home";
+            //window.location = "#/app/preloader";
+            //$ionicLoading.show({
+                   // template: '<img src="img/preloader.GIF"></img>'
+
+                    // '<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+                    
+                //});
         });
 }
+
 }
 }
 

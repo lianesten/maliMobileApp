@@ -13,7 +13,7 @@ angular.module('starter', ['ionic', 'ionic-material', 'starter.controllers'])
                 if(navigator.connection.type == Connection.NONE) {
                     var alertPopup = $ionicPopup.alert({
                      title: 'No hay Internet!',
-                     template: 'Comprueba tu conexión de red para un adecuado funcionamiento de la App'
+                     template: 'Comprueba tu conexión de red para un adecuado funcionamiento.'
                  });
                 }
             }
@@ -45,52 +45,12 @@ angular.module('starter', ['ionic', 'ionic-material', 'starter.controllers'])
         controller: 'AppCtrl'
     })
 
-    .state('app.contact', {
-        url: '/contact',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/contact.html',
-                controller: 'ListsCtrl'
-            }
-        }
-    })
-
     .state('app.home', {
         url: '/home',
         views: {
             'menuContent': {
                 templateUrl: 'templates/home.html',
                 controller: 'MotionCtrl'
-            }
-        }
-    })
-
-    //Estado para el mapa de ubicacion
-    .state('app.location', {
-        url: '/mapLocation',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/mapLocation.html'
-            }
-        }
-    })
-
-    //Estado para el chat en linea
-    .state('app.chatOnline', {
-        url: '/chatOnline',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/chatOnline.html'
-            }
-        }
-    })
-
-    //Estado para escribenos
-    .state('app.escribenos', {
-        url: '/escribenos',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/escribenos.html'
             }
         }
     })
@@ -151,6 +111,36 @@ angular.module('starter', ['ionic', 'ionic-material', 'starter.controllers'])
         views: {
             'menuContent': {
                 templateUrl: 'templates/ofertas.html'
+            }
+        }
+    })
+
+        //Estado para el mapa de ubicacion
+    .state('app.location', {
+        url: '/location',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/ubicacion.html'
+            }
+        }
+    })
+
+    //Estado para el chat en linea
+    .state('app.chatOnline', {
+        url: '/chatOnline',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/chatOnline.html'
+            }
+        }
+    })
+
+    //Estado para escribenos
+    .state('app.escribenos', {
+        url: '/escribenos',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/escribenos.html'
             }
         }
     });

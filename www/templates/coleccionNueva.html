@@ -1,36 +1,19 @@
 <ion-view view-title="Colección Nueva">
-<ion-content class="padding">
-<iframe src="http://mobile.maliaccesorios.com/index.php/coleccionnueva.html" id="iframe" onload="isConection()"></iframe>
-</ion-content>
+  <ion-content class="padding">
+          <iframe   src="http://mobile.maliaccesorios.com/index.php/coleccionnueva.html" id="iframe" onload="isConection()"></iframe>
+  </ion-content>
 </ion-view>
 <style type="text/css">
-	.preloader {
-		background:url(img/preloader.GIF) center center no-repeat;
-	}
+.preloader {
+  background:url(img/preloader.GIF) center center no-repeat;
+ }
 
-	.scroll-content > .scroll {
-		height: 100%;
-		width: 100%;
-	}
-	.scroll-content > .scroll > iframe {
-		min-height: 100%;
-		min-width:  100%;
-	}
+.scroll-content > .scroll {
+  height: 100%;
+  width: 100%;
+}
+.scroll-content > .scroll > iframe {
+  min-height: 100%;
+  min-width:  100%;
+}
 </style>
-<script>
-		//alert("Inicio");
-		var bandera = false;
-		//alert("Valor de bandera: "+bandera);
-		function iframeLoaded(){
-			bandera = true;
-			//alert("cargo");
-		}		
-		setTimeout(function(){ 			
-			alert("Valor de bandera: "+bandera);
-			if(bandera==false){
-				alert("NO cargó");
-			}
-
-
-		}, 5000);
-</script>
