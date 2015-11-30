@@ -7,22 +7,23 @@ angular.module('starter.controllers', [])
     ionicMaterialMotion.blind();
 },0);
 
-  window.isConection=function(){
-        //Check if there is internet conection :)
-if(window.Connection) {
+ //Check if there is internet conection :)
+window.isConection=function(){
+    if(window.Connection) {
 
-    
-    if(navigator.connection.type == Connection.NONE) {
-        var frame = document.getElementById("iframe"),
-        frameDoc = frame.contentDocument || frame.contentWindow.document;
-        frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión</h1>';
-        var alertPopup = $ionicPopup.alert({
-         title: 'No hay Internet!',
-         template: 'Comprueba tu conexión de red'
-     });
-        alertPopup.then(function(res) {
+
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframe"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión</h1>';
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+            alertPopup.then(function(res) {
             //ionic.Platform.exitApp(); 
-            //window.location = "#/app/preloader";
+            //window.location = "#/app/home";
+             $state.go('#/app/home');
             //$ionicLoading.show({
                    // template: '<img src="img/preloader.GIF"></img>'
 
@@ -30,9 +31,9 @@ if(window.Connection) {
                     
                 //});
         });
-}
+        }
 
-}
+    }
 }
 
     // Form data for the login modal
@@ -61,54 +62,54 @@ $scope.closePopover = function() {
     });*/
 
 //Modal terminos del servicio
-    $ionicModal.fromTemplateUrl('templates/terminosModal.html', {
+$ionicModal.fromTemplateUrl('templates/terminosModal.html', {
       id: '1', // We need to use and ID to identify the modal that is firing the event!
       scope: $scope,
       animation: 'slide-in-up'
-    }).then(function(modal) {
+  }).then(function(modal) {
       $scope.oModal1 = modal;
-    });
+  });
 //Modal politicas de privacidad
-    $ionicModal.fromTemplateUrl('templates/politicasModal.html', {
+$ionicModal.fromTemplateUrl('templates/politicasModal.html', {
       id: '2', // We need to use and ID to identify the modal that is firing the event!
       scope: $scope,
       backdropClickToClose: false,
       animation: 'slide-in-up'
-    }).then(function(modal) {
+  }).then(function(modal) {
       $scope.oModal2 = modal;
-    });    
+  });    
 //Modal acerca de mali
-    $ionicModal.fromTemplateUrl('templates/acercaDeMaliModal.html', {
+$ionicModal.fromTemplateUrl('templates/acercaDeMaliModal.html', {
       id: '3', // We need to use and ID to identify the modal that is firing the event!
       scope: $scope,
       backdropClickToClose: false,
       animation: 'slide-in-up'
-    }).then(function(modal) {
+  }).then(function(modal) {
       $scope.oModal3 = modal;
-    });
+  });
 //Modal acerca de la App
-    $ionicModal.fromTemplateUrl('templates/acercaAppModal.html', {
+$ionicModal.fromTemplateUrl('templates/acercaAppModal.html', {
       id: '4', // We need to use and ID to identify the modal that is firing the event!
       scope: $scope,
       backdropClickToClose: false,
       animation: 'slide-in-up'
-    }).then(function(modal) {
+  }).then(function(modal) {
       $scope.oModal4 = modal;
-    });
+  });
 //Choose what modal render
-    $scope.openModal = function(index) {
-      if (index == 1) $scope.oModal1.show();
-      if (index == 2) $scope.oModal2.show();
-      if (index == 3) $scope.oModal3.show();
-      if (index == 4) $scope.oModal4.show();
-    };
+$scope.openModal = function(index) {
+  if (index == 1) $scope.oModal1.show();
+  if (index == 2) $scope.oModal2.show();
+  if (index == 3) $scope.oModal3.show();
+  if (index == 4) $scope.oModal4.show();
+};
 //Choose what modal close
-    $scope.closeModal = function(index) {
-      if (index == 1) $scope.oModal1.hide();
-      if (index == 2) $scope.oModal2.hide();
-      if (index == 3) $scope.oModal3.hide();
-      else $scope.oModal4.hide();
-    };    
+$scope.closeModal = function(index) {
+  if (index == 1) $scope.oModal1.hide();
+  if (index == 2) $scope.oModal2.hide();
+  if (index == 3) $scope.oModal3.hide();
+  else $scope.oModal4.hide();
+};    
 
 })
 
@@ -377,4 +378,6 @@ $scope.closePopover = function() {
 
     $scope.blinds();
     ionicMaterialInk.displayEffect();
+
+
 });
