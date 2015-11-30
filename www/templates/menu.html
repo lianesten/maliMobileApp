@@ -12,14 +12,24 @@
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
-        <a onclick="window.open('instagram://user?username=maliaccesorios', '_system'); return false;"><button  class="button button-positive button-fab button-fab-bottom-right">
+        <!-- De esta manera se abre las aplicaciones nativas de fb e instragram.
+        para aplicar las funcionalidad de abrir con app nativa o browser, existe un plugin para phonegap build llamado AppAvailability
+        <a onclick="window.open('instagram://user?username=maliaccesorios', '_system');"><button  class="button button-positive button-fab button-fab-bottom-right">
             <i class="icon ion-social-instagram"></i>
         </button></a>
 
-        <a onclick="window.open('facebook://user?username=243144185835149', '_system'); return false;">
+        <a onclick="window.open('fb://page/243144185835149', '_system');">
         <button  class="button button-positive button-fab button-fab-bottom-left">
             <i class="icon ion-social-facebook"></i>
-        </button></a>  
+        </button></a>-->
+        <a onclick="window.open('https://www.instagram.com/maliaccesorios/', '_system');"><button  class="button button-positive button-fab button-fab-bottom-right">
+            <i class="icon ion-social-instagram"></i>
+        </button></a>
+
+        <a onclick="window.open('https://www.facebook.com/243144185835149', '_system');">
+        <button  class="button button-positive button-fab button-fab-bottom-left">
+            <i class="icon ion-social-facebook"></i>
+        </button></a>
 
       
         <ion-nav-view name="menuContent"></ion-nav-view>
@@ -66,7 +76,10 @@
                 <a href="tel:301 425 86 03" style="text-decoration:none">
                 <ion-item nav-clear menu-close>
                    Llamanos
-                </ion-item>  
+                </ion-item>
+                 <ion-item nav-clear menu-close ui-sref="app.testModal">
+                   Modal
+                </ion-item>
                 </a>                                              
 
                 <!--<ion-item nav-clear menu-close href="#/app/motion">

@@ -26,7 +26,11 @@
       "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
       "id": "cordova-plugin-whitelist"
     },
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-inappbrowser",
+    {
+      "locator": "https://github.com/ohh2ahh/AppAvailability.git",
+      "id": "cordova-plugin-appavailability"
+    }
   ],
   "cordovaPlatforms": [
     "android",

@@ -1,24 +1,30 @@
-<ion-popover-view>
+<ion-popover-view class="im-wrapper">
 <ion-header-bar>
 <h1 class="title">Mali Mobile</h1>
 </ion-header-bar>
 <ion-content class="padding">
 <ion-list>
-  <ion-item>
-    FAQ
-  </ion-item>
-  <ion-item>
-    Terminos de uso
-  </ion-item>  
-  <ion-item>
-    Politicas de privacidad
-  </ion-item>
-  <ion-item>
-    Información Malí
-  </ion-item>    
-  <ion-item>
-    Acerca de ...
-  </ion-item>    
+  <a  ng-click="openModal(1)">
+    <ion-item>
+     Términos de uso
+    </ion-item>
+  </a>
+
+  <a  ng-click="openModal(2)">
+    <ion-item>
+     Políticas de privacidad
+    </ion-item>
+  </a>
+  <a ng-click="openModal(3)">
+    <ion-item>
+     Acerca de Mali...
+    </ion-item>
+  </a>
+  <a ng-click="openModal(4)">
+    <ion-item>
+     Acerca de la App...
+    </ion-item>
+  </a>    
 </ion-list>
 </ion-content>
 </ion-popover-view>

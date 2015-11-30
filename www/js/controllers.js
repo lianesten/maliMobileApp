@@ -1,7 +1,7 @@
 /* global angular, document, window */
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($state, $ionicPopup, $scope, $ionicModal, $ionicPopover, $timeout,  $location,  ionicMaterialInk, ionicMaterialMotion) {
+.controller('AppCtrl', function($ionicModal,$state, $ionicPopup, $scope, $ionicPopover, $timeout,  $location,  ionicMaterialInk, ionicMaterialMotion) {
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.blind();
@@ -45,28 +45,79 @@ if(window.Connection) {
         });
     }
 
-   /* var fab = document.getElementById('fab');
-    fab.addEventListener('click', function() {
-        return window && window.alert ? window.alert('you clicked the FAB!') : undefined;
-    });*/
-
+//popUp opciones
 $scope.popover = $ionicPopover.fromTemplateUrl('templates/opciones.html', {
     scope: $scope
 }).then(function(popover) {
     $scope.popover = popover;
 });
+/*
 $scope.closePopover = function() {
     $scope.popover.hide();
 };
     //Cleanup the popover when we're done with it!
     $scope.$on('$destroy', function() {
         $scope.popover.remove();
+    });*/
+
+//Modal terminos del servicio
+    $ionicModal.fromTemplateUrl('templates/terminosModal.html', {
+      id: '1', // We need to use and ID to identify the modal that is firing the event!
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal1 = modal;
     });
+//Modal politicas de privacidad
+    $ionicModal.fromTemplateUrl('templates/politicasModal.html', {
+      id: '2', // We need to use and ID to identify the modal that is firing the event!
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal2 = modal;
+    });    
+//Modal acerca de mali
+    $ionicModal.fromTemplateUrl('templates/acercaDeMaliModal.html', {
+      id: '3', // We need to use and ID to identify the modal that is firing the event!
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal3 = modal;
+    });
+//Modal acerca de la App
+    $ionicModal.fromTemplateUrl('templates/acercaAppModal.html', {
+      id: '4', // We need to use and ID to identify the modal that is firing the event!
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal4 = modal;
+    });
+//Choose what modal render
+    $scope.openModal = function(index) {
+      if (index == 1) $scope.oModal1.show();
+      if (index == 2) $scope.oModal2.show();
+      if (index == 3) $scope.oModal3.show();
+      if (index == 4) $scope.oModal4.show();
+    };
+//Choose what modal close
+    $scope.closeModal = function(index) {
+      if (index == 1) $scope.oModal1.hide();
+      if (index == 2) $scope.oModal2.hide();
+      if (index == 3) $scope.oModal3.hide();
+      else $scope.oModal4.hide();
+    };    
+
 })
+
+//Launch fb and instagram app in local system or browser
 
 .controller('InkCtrl', function($scope, $stateParams, ionicMaterialInk) {
     ionicMaterialInk.displayEffect();
 })
+
 
 .controller('ComponentsCtrl', function($scope, $stateParams,  ionicMaterialInk, ionicMaterialMotion, $timeout) {
 
