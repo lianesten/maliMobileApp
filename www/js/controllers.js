@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
 },0);
 
  //Check if there is internet conection :)
-window.isConection=function(){
+/*window.isConection=function(){
     if(window.Connection) {
 
 
@@ -23,7 +23,7 @@ window.isConection=function(){
             alertPopup.then(function(res) {
             //ionic.Platform.exitApp(); 
             //window.location = "#/app/home";
-             $state.go('#/app/home');
+            //$state.go('#/app');
             //$ionicLoading.show({
                    // template: '<img src="img/preloader.GIF"></img>'
 
@@ -34,7 +34,7 @@ window.isConection=function(){
         }
 
     }
-}
+}*/
 
     // Form data for the login modal
     $scope.loginData = {};
@@ -113,11 +113,147 @@ $scope.closeModal = function(index) {
 
 })
 
-//Launch fb and instagram app in local system or browser
+.controller('coleccionNuevaCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionColeccionNueva=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            document.getElementById("iframeColeccionnueva").style.display = "none";
+            //var frame = document.getElementById("iframeColeccionnueva"),
+            //frameDoc = frame.contentDocument || frame.contentWindow.document;
+            //frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión Nuevos</h1>';
+            //var img = document.createElement("IMG");
+            //img.src = 'https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png';
+             //document.getElementById("ContentUbicacionMapa").documentElement.appendChild(img);
+            //document.getElementById('ContentUbicacionMapa').appendChild(img);
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+        }
+
+    }
+}    
+})
+
+.controller('pulserasCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionPulseras=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframePulseras"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión Pulseras</h1>';
+            frame.onload = null;
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+            alertPopup.then(function(res) {
+            window.location = "#/app/preloader";
+        });            
+        }
+
+    }
+}    
+})
+
+.controller('collaresCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionCollares=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframeCollares"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión Collares</h1>';
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+        }
+
+    }
+}    
+})
+
+.controller('aretesCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionAretes=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframeAretes"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión aretes</h1>';
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+        }
+
+    }
+}    
+})
+
+.controller('complementosCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionComplementos=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframeComplementos"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión complementos</h1>';
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+        }
+
+    }
+}    
+})
+
+
+
+.controller('chatOnlineCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionChatOnline=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframeChatOnline"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión ChatOnline</h1>';
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+        }
+
+    }
+}    
+})
+
+.controller('escribenosCtrl', function($ionicPopup) {
+ //Check if there is internet conection :)
+window.isConectionEscribenos=function(){
+    if(window.Connection) {
+        if(navigator.connection.type == Connection.NONE) {
+            var frame = document.getElementById("iframeEscribenos"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+            frameDoc.documentElement.innerHTML = '<h1>Fallo de conexión Escribenos</h1>';
+            var alertPopup = $ionicPopup.alert({
+               title: 'No hay Internet!',
+               template: 'Comprueba tu conexión de red'
+           });
+        }
+
+    }
+}    
+})
 
 .controller('InkCtrl', function($scope, $stateParams, ionicMaterialInk) {
     ionicMaterialInk.displayEffect();
 })
+
 
 
 .controller('ComponentsCtrl', function($scope, $stateParams,  ionicMaterialInk, ionicMaterialMotion, $timeout) {
