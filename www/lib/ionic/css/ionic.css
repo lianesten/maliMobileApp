@@ -3111,7 +3111,7 @@ a.subdued {
     .bar.bar-calm.bar-footer {
       background-image: linear-gradient(180deg, #0a9ec7, #0a9ec7 50%, transparent 50%); }
   .bar.bar-assertive {
-    background-color:#87764E;
+    background-color:#87764E !important;
     /*border-color: #e42012;
     background-color: #87764E;
     background-image: linear-gradient(0deg, #e42012, #e42012 50%, transparent 50%);*/

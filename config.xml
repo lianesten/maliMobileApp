@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.imali446702" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Mali</name>
+<widget id="com.ionicframework.imali446702" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Mali Accesorios</name>
   <description>
-        Maliaccesorios online Store
+        Mali Accesorios es una tienda en línea fabricante accesorios femeninos.
     </description>
   <author email="julianesten@gmail.com" href="http://la5ta.com.co/">
       Julian Esteban Montoya - Julian Quiroz - la5ta.com.co
